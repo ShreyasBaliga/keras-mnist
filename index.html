@@ -1,14 +1,29 @@
 <html>
 <head></head>
 <body onload="InitThis();">
-    <script src="fabric.js"> </script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- tensorflow js library -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.12.5"> </script>
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+    <!-- the js file -->
     <script type="text/javascript" src="main.js"></script>
+
     <div align="center">
         <canvas id="myCanvas" width="140" height="140" style="background-color: black"></canvas>
+        Predicted number is :
+        <label id="myLabel" rows="4" cols="50"></label>
         <br /><br />
-        <button onclick="javascript:clearArea();return false;">Clear Area</button>
+        <button onclick="javascript:clearArea();return false;" style="background :orange">Clear Area</button>
     </div>
 </body>
 </html>

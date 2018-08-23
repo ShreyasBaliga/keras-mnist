@@ -1,4 +1,3 @@
-//http-server . --cors -o
 var mousePressed = false;
 var lastX, lastY;
 var canvas;
@@ -58,10 +57,8 @@ function clearArea() {
 
 function getFrame()
 {
-    
-  //  imgData = canvas.getImageData(0, 0, 140, 140);
 
-    const imageData = canvas.getImageData(0, 0, 140, 140);
+    imageData = canvas.getImageData(0, 0, 140, 140);
     //convert to tensor 
     var tfImg = tf.fromPixels(imageData, 1);
     var smalImg = tf.image.resizeBilinear(tfImg, [28, 28]);
@@ -71,25 +68,10 @@ function getFrame()
 
     var pred = model.predict(tensor).dataSync();
     var index = pred.indexOf(Math.max.apply(Math, pred));
-    console.log(index);
+    document.getElementById('myLabel').innerHTML = index;
 
 }
 
-// function preprocess(imgData)
-// {
-// return tf.tidy(()=>{
-	  
-//     var tensor = tf.fromPixels(imgData).toFloat()
-//     var offset = tf.scalar(255.0);
-
-//     // Normalize the image 
-//     var normalized = tf.scalar(1.0).sub(tensor.div(offset));
-//     var resized = tf.image.resizeBilinear(normalized, [28, 28])
-//     var sliced   = resized.slice([0, 0, 1], [28, 28, 1])
-//     var batched = sliced.expandDims(0)
-//     return batched
-// })
-// }
 
 async function loadModel() {
   model = await tf.loadModel('models/model.json');
